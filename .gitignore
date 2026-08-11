@@ -8,3 +8,7 @@ todo-app/mongo_data/
 todo-app/test-results/
 todo-app/playwright-report/
 todo-app/playwright/.cache/
+
+#pnpm package-lock.json
+todo-tests/node_modules/*
+todo-tests/package-lock.json
