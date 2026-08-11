@@ -41,17 +41,20 @@ jobs:
       - name: Check running containers
         run: docker ps
 
+      - name: Install pnpm
+        run: pnpm/action-setup@v4
+
       - name: Install dependencies
         working-directory: ./todo-tests
-        run: npm ci
+        run: pnpm install --frozen-lockfile
 
       - name: Install Playwright browsers
         working-directory: ./todo-tests
-        run: npx playwright install --with-deps chromium
+        run: pnpm exec playwright install --with-deps chromium
 
       - name: Run Playwright tests
         working-directory: ./todo-tests
-        run: npm run test:e2e
+        run: pnpm run test:e2e
 
       - name: Upload Playwright report
         if: failure()
