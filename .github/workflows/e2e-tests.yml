@@ -42,7 +42,7 @@ jobs:
         run: docker ps
 
       - name: Install pnpm
-        run: pnpm/action-setup@v4
+        run: npm install -g pnpm
 
       - name: Install dependencies
         working-directory: ./todo-tests
